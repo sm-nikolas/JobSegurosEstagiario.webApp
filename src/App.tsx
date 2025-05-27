@@ -290,16 +290,16 @@ function App() {
           <div className="flex flex-col gap-8">
             {[
               {
-                name: 'João Silva',
-                text: 'O seguro me deu tranquilidade para focar nos estudos e no trabalho. Recomendo!'
+                name: 'Ana Beatriz Costa',
+                text: 'A Job Seguros transformou minha experiência como estagiária. Agora posso me dedicar aos estudos com mais tranquilidade, sabendo que estou protegida.'
               },
               {
-                name: 'Maria Santos',
-                text: 'Ótimo custo-benefício e atendimento excepcional. Me sinto mais segura.'
+                name: 'Lucas Mendes',
+                text: 'O atendimento é incrível e o processo foi super rápido. Como estagiário, ter essa proteção faz toda diferença no meu desenvolvimento profissional.'
               },
               {
-                name: 'Carlos Oliveira',
-                text: 'Processo simples e rápido. Os benefícios são excelentes para estagiários.'
+                name: 'Juliana Almeida',
+                text: 'Os benefícios são excelentes e o preço cabe no bolso de qualquer estagiário. Recomendo para todos os colegas que estão começando a carreira.'
               }
             ].map((t, i) => (
               <motion.div
