@@ -1,0 +1,69 @@
+# dependencies
+node_modules/
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+.env
+.env.*
+*.log
+yarn-error.log
+npm-debug.log
+
+# local env
+*.local
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# test coverage
+coverage/
+
+# next.js
+.next/
+
+# vercel
+.vercel/
+
+# parcel-bundler
+.cache/
+
+# storybook
+out/
+storybook-static/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+dist-ssr
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# package-lock.json
+package-lock.json
+
+# yarn.lock
+yarn.lock
