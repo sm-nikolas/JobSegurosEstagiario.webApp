@@ -139,7 +139,7 @@ function App() {
       {/* Benefits Section - Cards Style */}
       <section className="py-12 sm:py-20 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">Por que escolher a Estag Seguros?</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">Por que escolher a Job Seguros?</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               {
@@ -401,12 +401,12 @@ function App() {
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
           {/* Logo e nome */}
           <div className="flex items-center gap-3 mb-4 md:mb-0">
-            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg" alt="Estag Seguros Logo" className="w-10 h-10 rounded-full bg-white shadow p-1" />
-            <span className="text-gray-700 font-semibold text-base tracking-tight">Estag Seguros</span>
+            <img src="/logo-jobseguros.png" alt="Job Seguros Logo" className="w-10 h-10 rounded-full bg-white shadow p-1" />
+            <span className="text-gray-700 font-semibold text-base tracking-tight">Job Seguros</span>
           </div>
           {/* Links rápidos */}
           <div className="flex items-center gap-6 text-gray-500 text-sm">
-            <a href="mailto:contato@estagseguros.com" className="hover:text-orange-600 transition-colors flex items-center gap-1" title="E-mail">
+            <a href="mailto:contato@jobseguros.com" className="hover:text-orange-600 transition-colors flex items-center gap-1" title="E-mail">
               <Mail className="w-4 h-4" /> E-mail
             </a>
             <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors flex items-center gap-1" title="WhatsApp">
@@ -418,7 +418,7 @@ function App() {
           </div>
           {/* Direitos autorais */}
           <div className="text-gray-400 text-xs mt-4 md:mt-0 text-center md:text-right">
-            &copy; {new Date().getFullYear()} Estag Seguros. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Job Seguros. Todos os direitos reservados.
           </div>
         </div>
       </footer>
