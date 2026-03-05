@@ -106,7 +106,7 @@ function App() {
       </a>
 
       {/* ── Hero ── */}
-      <header className="relative min-h-screen bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 overflow-hidden flex items-center noise-bg">
+      <header className="relative min-h-[100dvh] bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 overflow-hidden flex items-center noise-bg">
         {/* Blobs decorativos */}
         <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 -left-24 w-[400px] h-[400px] bg-orange-900/20 rounded-full blur-3xl pointer-events-none" />
