@@ -30,9 +30,9 @@ export const PlanosGrid: React.FC<PlanosGridProps> = ({ planos, onSelect, select
         <div className="text-center text-4xl sm:text-5xl font-light text-gray-400 mb-4">
           R$ <span className="text-5xl sm:text-6xl font-thin">{plano.capital}</span>,00
         </div>
-        <ul className="text-gray-700 text-sm space-y-1">
-          <li>Quantidade de nº da sorte: <b>{plano.quantidade}</b></li>
-          <li>Prêmio bruto: <b>R$ {plano.premio}</b></li>
+        <ul className="text-gray-700 text-sm space-y-2 mt-2">
+          <li className="flex justify-between"><span className="text-gray-500">Prêmio anual:</span> <b className="text-orange-700">R$ {plano.premio}</b></li>
+          <li className="flex justify-between"><span className="text-gray-500">Vigência:</span> <b>1 ano</b></li>
         </ul>
       </motion.button>
     ))}

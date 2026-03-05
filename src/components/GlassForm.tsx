@@ -317,9 +317,9 @@ export const GlassForm: React.FC<GlassFormProps> = ({ plano }) => {
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <div className="bg-green-50 rounded-2xl p-12">
             <svg className="w-24 h-24 text-green-500 mx-auto mb-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2l4 -4" /></svg>
-            <h2 className="text-3xl font-bold mb-4">Parabéns! Seu cadastro foi realizado com sucesso!</h2>
-            <p className="text-xl text-gray-600 mb-8">Em breve, nossa equipe entrará em contato para finalizar sua contratação e explicar todos os detalhes do seu plano.</p>
-            <p className="text-gray-500">Fique tranquilo, você receberá um e-mail de confirmação com todas as informações.</p>
+            <h2 className="text-3xl font-bold mb-4">Parabéns! Seus dados foram enviados com sucesso!</h2>
+            <p className="text-xl text-gray-600 mb-8">Em breve você receberá um e-mail com as instruções para o pagamento. Após a confirmação do pagamento, sua apólice será emitida e seu seguro estará ativo por 1 ano, podendo ser renovado.</p>
+            <p className="text-gray-500">Fique tranquilo — seu ambiente é seguro e suas informações estão protegidas. Em caso de dúvidas, entre em contato pelo site.</p>
           </div>
         </div>
       </motion.div>

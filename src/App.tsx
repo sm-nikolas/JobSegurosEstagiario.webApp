@@ -9,15 +9,19 @@ function App() {
   const plansRef = useRef<HTMLDivElement>(null);
 
   const planos: Plano[] = [
-    { id: 1, nome: 'PLANO 1', capital: '10.000', quantidade: 1, premio: '19,90' },
-    { id: 2, nome: 'PLANO 2', capital: '15.000', quantidade: 2, premio: '29,85' },
-    { id: 3, nome: 'PLANO 3', capital: '20.000', quantidade: 3, premio: '39,80' },
-    { id: 4, nome: 'PLANO 4', capital: '25.000', quantidade: 4, premio: '49,75' },
-    { id: 5, nome: 'PLANO 5', capital: '35.000', quantidade: 5, premio: '69,65' },
-    { id: 6, nome: 'PLANO 6', capital: '50.000', quantidade: 6, premio: '89,50' },
-    { id: 7, nome: 'PLANO 7', capital: '75.000', quantidade: 7, premio: '119,90' },
-    { id: 8, nome: 'PLANO 8', capital: '100.000', quantidade: 8, premio: '149,90' },
-    { id: 9, nome: 'PLANO 9', capital: '150.000', quantidade: 9, premio: '199,90' },
+    { id: 1,  nome: 'PLANO 1',  capital: '10.000',  quantidade: 1,  premio: '29,90' },
+    { id: 2,  nome: 'PLANO 2',  capital: '15.000',  quantidade: 2,  premio: '44,85' },
+    { id: 3,  nome: 'PLANO 3',  capital: '20.000',  quantidade: 3,  premio: '59,80' },
+    { id: 4,  nome: 'PLANO 4',  capital: '25.000',  quantidade: 4,  premio: '74,75' },
+    { id: 5,  nome: 'PLANO 5',  capital: '35.000',  quantidade: 5,  premio: '104,65' },
+    { id: 6,  nome: 'PLANO 6',  capital: '50.000',  quantidade: 6,  premio: '149,50' },
+    { id: 7,  nome: 'PLANO 7',  capital: '75.000',  quantidade: 7,  premio: '224,25' },
+    { id: 8,  nome: 'PLANO 8',  capital: '100.000', quantidade: 8,  premio: '299,00' },
+    { id: 9,  nome: 'PLANO 9',  capital: '150.000', quantidade: 9,  premio: '448,50' },
+    { id: 10, nome: 'PLANO 10', capital: '200.000', quantidade: 10, premio: '598,00' },
+    { id: 11, nome: 'PLANO 11', capital: '250.000', quantidade: 11, premio: '747,50' },
+    { id: 12, nome: 'PLANO 12', capital: '300.000', quantidade: 12, premio: '897,00' },
+    { id: 13, nome: 'PLANO 13', capital: '500.000', quantidade: 13, premio: '1.495,00' },
   ];
 
   const handlePlanoSelect = (plano: Plano) => {
@@ -139,18 +143,23 @@ function App() {
       {/* Benefits Section - Cards Style */}
       <section className="py-12 sm:py-20 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">Por que escolher a Job Seguros?</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">Por que escolher a <span className="text-orange-600">JOB Seguros</span>?</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
+              {
+                icon: <svg className="w-8 sm:w-10 h-8 sm:h-10 text-orange-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>,
+                title: 'Parceria Capemisa',
+                desc: 'Respaldados pela Capemisa Seguradora, com mais de 65 anos de experiência no mercado — solidez e credibilidade para proteger você.'
+              },
               {
                 icon: <Shield className="w-8 sm:w-10 h-8 sm:h-10 text-orange-600" />,
                 title: 'Cobertura Completa',
-                desc: 'Proteção para estagiários em todas as situações do dia a dia.'
+                desc: 'Proteção para estagiários conforme a Lei do Estágio (Lei nº 11.788/2008).'
               },
               {
                 icon: <Clock className="w-8 sm:w-10 h-8 sm:h-10 text-orange-600" />,
                 title: 'Atendimento Ágil',
-                desc: 'Processo simples e pagamento rápido dos benefícios.'
+                desc: 'Processo simples e pagamento rápido do benefício.'
               },
               {
                 icon: <FileCheck className="w-8 sm:w-10 h-8 sm:h-10 text-orange-600" />,
@@ -180,31 +189,17 @@ function App() {
             {[
               {
                 icon: <Shield className="w-6 h-6 text-orange-600" />,
-                title: 'Seguro de Vida',
-                value: 'Até R$ 100.000',
-                desc: 'Proteção financeira completa para você e sua família em casos de acidentes ou imprevistos.',
-                highlights: ['Morte acidental', 'Invalidez permanente', 'Auxílio funeral']
-              },
-              {
-                icon: <Clock className="w-6 h-6 text-orange-600" />,
-                title: 'Auxílio Educação',
-                value: 'R$ 1.200/mês',
-                desc: 'Suporte financeiro mensal para garantir a continuidade dos seus estudos.',
-                highlights: ['12 meses de benefício', 'Pagamento pontual', 'Sem carência']
-              },
-              {
-                icon: <Shield className="w-5 h-5 text-orange-600" />,
-                title: 'Assistência Médica',
-                value: 'Cobertura Total',
-                desc: 'Assistência completa para dar todo suporte necessário em casos de acidentes.',
-                highlights: ['Cobertura nacional', 'Transporte', 'Documentação']
+                title: 'Seguro de Vida (Acidentes Pessoais)',
+                value: 'De R$ 10.000 a R$ 500.000',
+                desc: 'A Lei do Estágio (Lei nº 11.788/2008) determina que a empresa ou órgão público contratante deve contratar seguro contra acidentes pessoais para o estagiário. Este seguro garante ao estudante ou seus beneficiários indenização em caso de morte ou invalidez por acidente. Vigência de 1 ano, podendo ser renovado.',
+                highlights: ['Morte por acidente', 'Invalidez permanente total ou parcial por acidente', 'Pagamento único anual', 'Vigência: 1 ano renovável']
               },
               {
                 icon: <FileCheck className="w-5 h-5 text-orange-600" />,
-                title: 'Suporte Jurídico',
-                value: '24h por dia',
-                desc: 'Orientação jurídica especializada para todas as suas necessidades legais.',
-                highlights: ['Consultoria trabalhista', 'Processos legais', 'Documentação']
+                title: 'Suporte Assistencial',
+                value: 'Suporte Dedicado',
+                desc: 'Em caso de um infortúnio, entre em contato com a JOB Seguros através de nossos canais aqui pelo site e te auxiliaremos em todo o processo.',
+                highlights: ['Atendimento via site', 'Suporte ao beneficiário', 'Orientação no processo']
               }
             ].map((item, index) => (
               <motion.div
@@ -269,8 +264,8 @@ function App() {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">Contrate em poucos passos</h2>
               <ol className="space-y-4 text-base sm:text-lg text-gray-700 mb-8 list-decimal list-inside">
                 <li>Escolha o plano ideal para você.</li>
-                <li>Preencha o formulário de cadastro online.</li>
-                <li>Receba o contato do nosso time e finalize a contratação.</li>
+                <li>Preencha o formulário de cadastro online — você está em um ambiente seguro e suas informações serão protegidas.</li>
+                <li>Após o envio, você receberá um e-mail com as instruções para o pagamento e, após a confirmação, sua apólice será emitida.</li>
               </ol>
               <button 
                 className="bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-full font-medium hover:bg-orange-700 transition-colors text-base sm:text-lg"
@@ -326,15 +321,15 @@ function App() {
             {[
               {
                 q: 'Como funciona o processo de contratação?',
-                a: 'É simples e rápido. Após escolher seu plano, preencha o formulário e nossa equipe entrará em contato.'
+                a: 'É simples e rápido! Escolha o plano ideal, preencha o formulário de cadastro online e envie seus dados. Fique tranquilo: você está em um ambiente seguro e suas informações serão protegidas.'
               },
               {
                 q: 'Quanto tempo leva para o seguro começar a valer?',
-                a: 'Após a aprovação da documentação, sua cobertura começa imediatamente.'
+                a: 'Após o envio do formulário, você receberá um e-mail com o boleto para pagamento. Realizando o pagamento, seu seguro já estará vigente por 1 ano, podendo ser renovado ao final do período caso queira.'
               },
               {
-                q: 'Posso alterar meu plano depois?',
-                a: 'Sim, você pode alterar seu plano a qualquer momento.'
+                q: 'Posso alterar meu plano depois de contratado?',
+                a: 'Não é possível alterar uma apólice já emitida, pois trata-se de uma apólice única. Porém, se você considerar que o valor contratado é baixo, nada impede que você contrate uma nova apólice com capital segurado maior.'
               }
             ].map((faq, i) => (
               <motion.div
@@ -402,23 +397,23 @@ function App() {
           {/* Logo e nome */}
           <div className="flex items-center gap-3 mb-4 md:mb-0">
             <img src="/logo-jobseguros.png" alt="Job Seguros Logo" className="w-10 h-10 rounded-full bg-white shadow p-1" />
-            <span className="text-gray-700 font-semibold text-base tracking-tight">Job Seguros</span>
+            <span className="text-gray-700 font-semibold text-base tracking-tight">JOB Seguros</span>
           </div>
           {/* Links rápidos */}
           <div className="flex items-center gap-6 text-gray-500 text-sm">
-            <a href="mailto:contato@jobseguros.com" className="hover:text-orange-600 transition-colors flex items-center gap-1" title="E-mail">
+            <a href="mailto:contato@estagiarioseguro.net.br" className="hover:text-orange-600 transition-colors flex items-center gap-1" title="E-mail">
               <Mail className="w-4 h-4" /> E-mail
             </a>
             <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors flex items-center gap-1" title="WhatsApp">
               <MessageSquare className="w-4 h-4" /> WhatsApp
             </a>
-            <a href="https://instagram.com/estagseguros" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors flex items-center gap-1" title="Instagram">
+            <a href="https://instagram.com/jobseguros" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors flex items-center gap-1" title="Instagram">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg> Instagram
             </a>
           </div>
           {/* Direitos autorais */}
           <div className="text-gray-400 text-xs mt-4 md:mt-0 text-center md:text-right">
-            &copy; {new Date().getFullYear()} Job Seguros. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} JOB Seguros. Todos os direitos reservados.
           </div>
         </div>
       </footer>
