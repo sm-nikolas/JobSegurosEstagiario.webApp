@@ -1,20 +1,16 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Mail, MessageSquare, ChevronDown, Shield, Clock, FileCheck, CheckCircle2, Star } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Mail, ChevronDown, Shield, Clock, FileCheck, CheckCircle2, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GlassForm } from './components/GlassForm';
 import { PlanosGrid, Plano } from './components/PlanosGrid';
+import { WhatsAppIcon } from './components/WhatsAppIcon';
+import { NavbarBrand, FooterBrand } from './components/BrandLogo';
+import { siteConfig, getWhatsAppLink } from './config/site';
 
 function App() {
   const [selectedPlano, setSelectedPlano] = React.useState<Plano | undefined>(undefined);
-  const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const plansRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const planos: Plano[] = [
     { id: 1,  nome: 'PLANO 1',  capital: '10.000',  quantidade: 1,  premio: '29,90' },
@@ -60,15 +56,9 @@ function App() {
     <div className="min-h-screen flex flex-col bg-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
       {/* ── Navbar ── */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
-        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-20 sm:h-24">
-          <div className="flex items-center gap-2.5">
-            <img
-              src="/logo-jobseguros-removebg-preview.png"
-              alt="JOB Seguros"
-              className="h-20 w-auto object-contain"
-            />
-          </div>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between min-h-[5.5rem] sm:min-h-24 py-3">
+          <NavbarBrand />
           <div className="hidden md:flex items-center gap-8">
             {[
               { label: 'Por que nós?', id: 'beneficios' },
@@ -79,7 +69,7 @@ function App() {
               <button
                 key={link.id}
                 onClick={() => document.getElementById(link.id)?.scrollIntoView({ behavior: 'smooth' })}
-                className={`text-sm font-medium transition-colors hover:text-orange-400 ${scrolled ? 'text-gray-600' : 'text-white/90'}`}
+                className="text-sm font-medium text-gray-600 transition-colors hover:text-orange-500"
               >
                 {link.label}
               </button>
@@ -96,13 +86,13 @@ function App() {
 
       {/* ── WhatsApp flutuante ── */}
       <a
-        href="https://wa.me/5511999999999"
+        href={getWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-50 flex items-center justify-center"
-        title="Fale pelo WhatsApp"
+        title={`Fale pelo WhatsApp ${siteConfig.whatsapp.display}`}
       >
-        <MessageSquare className="w-6 h-6" />
+        <WhatsAppIcon className="w-7 h-7" />
       </a>
 
       {/* ── Hero ── */}
@@ -111,7 +101,7 @@ function App() {
         <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 -left-24 w-[400px] h-[400px] bg-orange-900/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-16">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Esquerda */}
@@ -204,7 +194,7 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl" />
                 <img
                   src="https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg"
-                  alt="Estagiários protegidos pela JOB Seguros"
+                  alt="Estagiários protegidos pela JobSeguros"
                   className="w-full h-[540px] object-cover rounded-3xl shadow-2xl"
                 />
                 {/* Card flutuante */}
@@ -255,7 +245,7 @@ function App() {
           <div className="text-center max-w-xl mx-auto mb-14">
             <span className="text-orange-600 font-semibold text-sm uppercase tracking-widest">Diferenciais</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2" style={{ fontFamily: "'Sora', sans-serif" }}>
-              Por que escolher a <span className="text-orange-600">JOB Seguros</span>?
+              Por que escolher a <span className="text-orange-600">JobSeguros</span>?
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -385,7 +375,7 @@ function App() {
               <div>
                 <h3 className="font-bold text-gray-900 text-lg mb-2" style={{ fontFamily: "'Sora', sans-serif" }}>Suporte Assistencial</h3>
                 <p className="text-gray-500 leading-relaxed text-sm">
-                  Em caso de um infortúnio, entre em contato com a <strong className="text-gray-700">JOB Seguros</strong> através de nossos canais aqui pelo site. Nossa equipe irá te orientar em todo o processo de acionamento do seguro com agilidade e atenção.
+                  Em caso de um infortúnio, entre em contato com a <strong className="text-gray-700">JobSeguros</strong> através de nossos canais aqui pelo site. Nossa equipe irá te orientar em todo o processo de acionamento do seguro com agilidade e atenção.
                 </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {['Atendimento via site', 'Suporte ao beneficiário', 'Orientação no processo'].map(t => (
@@ -476,7 +466,7 @@ function App() {
               {
                 name: 'Ana Beatriz Costa',
                 role: 'Estagiária de Direito',
-                text: 'A JOB Seguros transformou minha experiência como estagiária. Agora posso me dedicar aos estudos com mais tranquilidade, sabendo que estou protegida.'
+                text: 'A JobSeguros transformou minha experiência como estagiária. Agora posso me dedicar aos estudos com mais tranquilidade, sabendo que estou protegida.'
               },
               {
                 name: 'Lucas Mendes',
@@ -628,8 +618,8 @@ function App() {
           <div className="grid sm:grid-cols-3 gap-10 pb-10 border-b border-gray-800">
             {/* Marca */}
             <div>
-              <div className="flex items-center gap-2.5 mb-4 justify-center sm:justify-start">
-                <img src="/logo-jobseguros-removebg-preview.png" alt="JOB Seguros" className="h-24 w-auto object-contain brightness-0 invert" />
+              <div className="mb-5 flex justify-center sm:justify-start">
+                <FooterBrand />
               </div>
               <p className="text-sm leading-relaxed">
                 Corretora de seguros especializada em proteção para estagiários. Parceria com a Capemisa Seguradora, mais de 65 anos de mercado.
@@ -656,8 +646,8 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-400 transition-colors">
-                    <MessageSquare className="w-4 h-4" /> WhatsApp
+                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-400 transition-colors">
+                    <WhatsAppIcon className="w-4 h-4" /> {siteConfig.whatsapp.display}
                   </a>
                 </li>
                 <li>
@@ -672,7 +662,7 @@ function App() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8 text-xs">
-            <span>&copy; {new Date().getFullYear()} JOB Seguros. Todos os direitos reservados.</span>
+            <span>&copy; {new Date().getFullYear()} JobSeguros. Todos os direitos reservados.</span>
             <span className="text-gray-600">Parceria Capemisa Seguradora • SUSEP</span>
           </div>
         </div>
