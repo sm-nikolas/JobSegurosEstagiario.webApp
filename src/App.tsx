@@ -6,27 +6,29 @@ import { PlanosGrid, Plano } from './components/PlanosGrid';
 import { WhatsAppIcon } from './components/WhatsAppIcon';
 import { NavbarBrand, FooterBrand } from './components/BrandLogo';
 import { siteConfig, getWhatsAppLink } from './config/site';
+import { usePlanos } from './hooks/usePlanos';
+
+const PLANOS_FALLBACK: Plano[] = [
+  { id: 1,  nome: 'PLANO 1',  capital: '10.000',  quantidade: 1,  premio: '29,90' },
+  { id: 2,  nome: 'PLANO 2',  capital: '15.000',  quantidade: 2,  premio: '44,85' },
+  { id: 3,  nome: 'PLANO 3',  capital: '20.000',  quantidade: 3,  premio: '59,80' },
+  { id: 4,  nome: 'PLANO 4',  capital: '25.000',  quantidade: 4,  premio: '74,75' },
+  { id: 5,  nome: 'PLANO 5',  capital: '35.000',  quantidade: 5,  premio: '104,65' },
+  { id: 6,  nome: 'PLANO 6',  capital: '50.000',  quantidade: 6,  premio: '149,50' },
+  { id: 7,  nome: 'PLANO 7',  capital: '75.000',  quantidade: 7,  premio: '224,25' },
+  { id: 8,  nome: 'PLANO 8',  capital: '100.000', quantidade: 8,  premio: '299,00',  popular: true },
+  { id: 9,  nome: 'PLANO 9',  capital: '150.000', quantidade: 9,  premio: '448,50' },
+  { id: 10, nome: 'PLANO 10', capital: '200.000', quantidade: 10, premio: '598,00' },
+  { id: 11, nome: 'PLANO 11', capital: '250.000', quantidade: 11, premio: '747,50' },
+  { id: 12, nome: 'PLANO 12', capital: '300.000', quantidade: 12, premio: '897,00' },
+  { id: 13, nome: 'PLANO 13', capital: '500.000', quantidade: 13, premio: '1.495,00' },
+];
 
 function App() {
   const [selectedPlano, setSelectedPlano] = React.useState<Plano | undefined>(undefined);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const plansRef = useRef<HTMLDivElement>(null);
-
-  const planos: Plano[] = [
-    { id: 1,  nome: 'PLANO 1',  capital: '10.000',  quantidade: 1,  premio: '29,90' },
-    { id: 2,  nome: 'PLANO 2',  capital: '15.000',  quantidade: 2,  premio: '44,85' },
-    { id: 3,  nome: 'PLANO 3',  capital: '20.000',  quantidade: 3,  premio: '59,80' },
-    { id: 4,  nome: 'PLANO 4',  capital: '25.000',  quantidade: 4,  premio: '74,75' },
-    { id: 5,  nome: 'PLANO 5',  capital: '35.000',  quantidade: 5,  premio: '104,65' },
-    { id: 6,  nome: 'PLANO 6',  capital: '50.000',  quantidade: 6,  premio: '149,50' },
-    { id: 7,  nome: 'PLANO 7',  capital: '75.000',  quantidade: 7,  premio: '224,25' },
-    { id: 8,  nome: 'PLANO 8',  capital: '100.000', quantidade: 8,  premio: '299,00',  popular: true },
-    { id: 9,  nome: 'PLANO 9',  capital: '150.000', quantidade: 9,  premio: '448,50' },
-    { id: 10, nome: 'PLANO 10', capital: '200.000', quantidade: 10, premio: '598,00' },
-    { id: 11, nome: 'PLANO 11', capital: '250.000', quantidade: 11, premio: '747,50' },
-    { id: 12, nome: 'PLANO 12', capital: '300.000', quantidade: 12, premio: '897,00' },
-    { id: 13, nome: 'PLANO 13', capital: '500.000', quantidade: 13, premio: '1.495,00' },
-  ];
+  const { planos, loading: planosLoading } = usePlanos(PLANOS_FALLBACK);
 
   const handlePlanoSelect = (plano: Plano) => {
     setSelectedPlano(plano);
@@ -567,7 +569,11 @@ function App() {
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.35 }}
               >
-                <PlanosGrid planos={planos} onSelect={handlePlanoSelect} selected={selectedPlano} />
+                {planosLoading ? (
+                  <div className="text-center py-16 text-gray-500">Carregando planos...</div>
+                ) : (
+                  <PlanosGrid planos={planos} onSelect={handlePlanoSelect} selected={selectedPlano} />
+                )}
               </motion.div>
             )}
             {selectedPlano && (

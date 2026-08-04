@@ -6,6 +6,10 @@
 export const siteConfig = {
   logoIcon: '/logo-separada-jobseguros.png',
 
+  produtosApiUrl:
+    import.meta.env.VITE_PRODUTOS_API_URL ??
+    'https://ut4ip1x58a.execute-api.sa-east-1.amazonaws.com/produtos',
+
   whatsapp: {
     /** Número completo com DDI + DDD (19 99315-7475) */
     number: import.meta.env.VITE_WHATSAPP_NUMBER ?? '5519993157475',
