@@ -44,7 +44,7 @@ function App() {
     },
     {
       q: 'Quanto tempo leva para o seguro começar a valer?',
-      a: 'Após o envio do formulário, você receberá um e-mail com o boleto para pagamento. Realizando o pagamento, seu seguro já estará vigente por 1 ano, podendo ser renovado ao final do período caso queira.'
+      a: 'Após o envio do formulário, você receberá um boleto seguro diretamente da Capemisa Seguradora, nossa parceira. Realizando o pagamento, seu seguro já estará vigente por 1 ano, podendo ser renovado ao final do período caso queira.'
     },
     {
       q: 'Posso alterar meu plano depois de contratado?',
@@ -340,8 +340,8 @@ function App() {
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
-                    { label: 'Morte por acidente', detail: 'Indenização total ao beneficiário' },
-                    { label: 'Invalidez permanente total ou parcial', detail: 'Por acidente pessoal' },
+                    { label: 'Morte Acidental', detail: 'Garante uma indenização ao(s) Beneficiário(s) em caso de Morte Acidental do participante.' },
+                    { label: 'Invalidez Permanente Total ou Parcial por Acidente', detail: 'Garante uma indenização ao Segurado relativa à perda, à redução ou à impotência funcional definitiva total ou parcial de um membro ou um órgão, por lesão física causada por Acidente Pessoal coberto.' },
                     { label: 'Pagamento único anual', detail: 'Sem mensalidades' },
                     { label: 'Vigência: 1 ano', detail: 'Renovável ao término' },
                   ].map(item => (
@@ -411,7 +411,7 @@ function App() {
                   {
                     n: '03',
                     title: 'Receba o boleto por e-mail',
-                    desc: 'Após o envio, você receberá um e-mail com as instruções de pagamento e, depois da confirmação, sua apólice é emitida.'
+                    desc: 'Após o envio, você receberá um boleto seguro diretamente da Capemisa Seguradora, nossa parceira. Após a confirmação do pagamento, sua apólice é emitida.'
                   },
                 ].map((step, i, arr) => (
                   <div key={step.n} className="flex gap-5">
@@ -651,12 +651,14 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com/jobseguros" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-pink-400 transition-colors">
+                  <a href="https://www.instagram.com/jobcorretoradeseguros?igsh=bzFqZ2VrM2xrMnhm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-pink-400 transition-colors">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
-                    Instagram
+                    @jobcorretoradeseguros
                   </a>
                 </li>
-                <li className="text-xs pt-1">estagiarioseguro.net.br</li>
+                <li>
+                  <a href="https://estagiarioseguro.net.br" target="_blank" rel="noopener noreferrer" className="text-xs pt-1 hover:text-orange-400 transition-colors">estagiarioseguro.net.br</a>
+                </li>
               </ul>
             </div>
           </div>
